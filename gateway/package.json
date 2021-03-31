@@ -6,19 +6,16 @@
     "start": "node dist/server",
     "clean": "rm -rf dist",
     "build": "npm -s run clean && npm -s run generate && tsc",
-    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
-    "generate:prisma": "prisma generate",
+    "generate": "npm -s run generate:nexus",
     "generate:nexus": "ts-node --transpile-only src/schema"
   },
   "dependencies": {
-    "@prisma/client": "2.20.0",
     "apollo-server": "2.22.2",
     "graphql": "15.5.0",
     "graphql-iso-date": "3.6.1",
     "nexus": "1.0.0"
   },
   "devDependencies": {
-    "prisma": "2.20.0",
     "@types/graphql-iso-date": "3.4.0",
     "@types/node": "12.20.7",
     "ts-node": "9.1.1",
