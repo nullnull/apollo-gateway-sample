@@ -4,6 +4,7 @@ import { ApolloServer } from 'apollo-server'
 const gateway = new ApolloGateway({
   serviceList: [
     { name: 'server1', url: 'http://localhost:4000/' },
+    { name: 'server2', url: 'http://localhost:4001/' },
     // Define additional services here
   ],
 })
