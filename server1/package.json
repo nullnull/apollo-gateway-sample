@@ -15,9 +15,11 @@
     "apollo-server": "2.22.2",
     "graphql": "15.5.0",
     "graphql-iso-date": "3.6.1",
+    "graphql-transform-federation": "^2.2.0",
     "nexus": "1.0.0"
   },
   "devDependencies": {
+    "@apollo/federation": "^0.22.0",
     "@types/graphql-iso-date": "3.4.0",
     "@types/node": "^14.14.37",
     "prisma": "^2.20.0",

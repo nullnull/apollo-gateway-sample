@@ -1,6 +1,7 @@
 import { ApolloServer } from 'apollo-server'
 import { schema } from './schema'
 import { context } from './context'
+import { transformSchemaFederation } from 'graphql-transform-federation'
 
 const loggerPlugin = {
 
@@ -27,8 +28,10 @@ const loggerPlugin = {
   },
 };
 
+const federatedSchema = transformSchemaFederation(schema, {})
+
 const server = new ApolloServer({
-  schema: schema,
+  schema: federatedSchema,
   context: context,
   plugins: [
     loggerPlugin
