@@ -1,4 +1,4 @@
-import { ApolloServer } from 'apollo-server'
+import { ApolloServer, AuthenticationError } from 'apollo-server'
 import { schema } from './schema'
 import { context } from './context'
 import { transformSchemaFederation } from 'graphql-transform-federation'
@@ -32,7 +32,18 @@ const federatedSchema = transformSchemaFederation(schema, {})
 
 const server = new ApolloServer({
   schema: federatedSchema,
-  context: context,
+  context({ req }) {
+    console.log(req.headers);
+    const userId = req.headers['user-id']
+    console.log(userId);
+
+    if (!userId) throw new AuthenticationError('you must be logged in');
+    
+    return {
+      ...context,
+      userId
+    }
+  },
   plugins: [
     loggerPlugin
   ]

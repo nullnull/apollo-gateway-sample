@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "lib": ["esnext"],
     "strict": true,
+    "target": "es6",
   },
   "include": ["src/**/*"]
 }
